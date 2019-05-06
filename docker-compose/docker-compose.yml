@@ -11,3 +11,11 @@ services:
       dockerfile: ./build/Dockerfile
     volumes:
       - ./:/code
+    depends_on:
+      - selenium
+  selenium:
+    container_name: selenium
+    image: selenium/standalone-chrome-debug
+    ports:
+      - "5900:5900"
+    shm_size: 128M
